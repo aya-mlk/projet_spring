@@ -1,0 +1,66 @@
+<div class="container mt-2">
+  <ng-container *ngIf="customers$ | async as listCustomers; else failureOrLoading">
+    <div class="card">
+      <div class="card-header">Customers</div>
+
+      <div class="card-body">
+        <div class="" *ngIf="searchFormGroup">
+
+          <form [formGroup]="searchFormGroup" (ngSubmit)="handleSearchcustomers()">
+            <div class="input-group">
+              <label class="input-group-text">Keyword :</label>
+              <input type="text" formControlName="keyword" class="form-control" />
+              <button class="btn btn-info"><i class="bi bi-search"></i></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Move the table structure inside the card-body div -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Actions</th>
+              <th scope="col">Accounts</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of customers$ | async">
+              <th scope="row">{{ c.id }}</th>
+              <td>{{ c.name }}</td>
+              <td>{{ c.email }}</td>
+              <td>
+                <!-- <button (click)="handleEditCustomer()" class="btn btn-success"><i class="bi bi-pencil"></i></button> -->
+                <button (click)="handleDeleteCustomer(c)" class="btn btn-danger m-lg-2"><i class="bi bi-trash"></i></button>
+                <button (click)="handleUpdateCustomer(c)" class="btn btn-success m-lg-2"><i class="bi bi-pencil"></i></button>
+              </td>
+              <td>
+                <button (click)="handleCustomerAccount(c)" class="btn btn-success m-lg-2">Accounts
+                  <i class="bi bi-box-arrow-in-right text-white"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <ul class="nav nav-pills">
+          <li *ngFor="let item of [].constructor(customers$);let page=index">
+            <a [ngClass]="page==currentPage?'btn-info':'btn-outline-info'" (click)="gotoPage(page)" class="btn  ms-1 mt-1">{{page}}</a>
+          </li>
+        </ul> -->
+        <!-- End of table structure -->
+
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #failureOrLoading>
+    <ng-container *ngIf="errorMessage; else loading">
+      <div class="text-danger">
+        {{ errorMessage }}
+      </div>
+    </ng-container>
+    <ng-template #loading> Loading ... </ng-template>
+  </ng-template>
+</div>
