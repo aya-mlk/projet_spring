@@ -12,6 +12,7 @@ import {EditCustomerComponent} from "./edit-customer/edit-customer.component";
 import {NewAccountComponent} from "./new-account/new-account.component";
 import {BankAccountComponent} from "./bank-account/bank-account.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {DashboardCustomerComponent} from "./dashboardcustomer/dashboardcustomer.component";
 
 
 export const routes: Routes = [
@@ -28,7 +29,7 @@ export const routes: Routes = [
       { path: "new-account", component: NewAccountComponent },
       { path: "bank-accounts", component:BankAccountComponent },
       { path: "dashboard", component:DashboardComponent },
-
+      { path: "dashboardcustomer", component:DashboardCustomerComponent },
     ]
   },
 
