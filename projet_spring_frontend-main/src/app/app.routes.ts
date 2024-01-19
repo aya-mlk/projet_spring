@@ -11,6 +11,8 @@ import { NotAuthorizedComponent } from './not-authorized/not-authorized.componen
 import {EditCustomerComponent} from "./edit-customer/edit-customer.component";
 import {NewAccountComponent} from "./new-account/new-account.component";
 import {BankAccountComponent} from "./bank-account/bank-account.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
+
 
 export const routes: Routes = [
   { path: "login", component: LoginComponent },
@@ -25,6 +27,8 @@ export const routes: Routes = [
       { path: "notAuthorized", component: NotAuthorizedComponent },
       { path: "new-account", component: NewAccountComponent },
       { path: "bank-accounts", component:BankAccountComponent },
+      { path: "dashboard", component:DashboardComponent },
+
     ]
   },
 

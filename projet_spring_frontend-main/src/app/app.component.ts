@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerService } from './services/customer.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,5 @@ export class AppComponent implements OnInit{
     this.authService.loadJwtTokenFromLocalStorage()
   }
 
-  title = 'frentend-banking';
+  title = 'frontend-banking';
 }
