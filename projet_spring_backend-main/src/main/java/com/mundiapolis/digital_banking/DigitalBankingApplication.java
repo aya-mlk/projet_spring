@@ -22,10 +22,10 @@ public class DigitalBankingApplication {
     @Bean
     CommandLineRunner commandLineRunner(BankAccountService bankAccountService){
         return args -> {
-            Stream.of("Mehdi","Omar","Mohamed").forEach(name->{
+            Stream.of("s.haliba","m.khairallah","med.amine", "a.malki", "i.tikarkaoussi").forEach(name->{
                 CustomerDTO customer=new CustomerDTO();
                 customer.setName(name);
-                customer.setEmail(name+"@gmail.com");
+                customer.setEmail(name+"@mundiapolis.ma");
                 bankAccountService.saveCustomer(customer);
             });
             bankAccountService.listCustomers().forEach(customer->{
